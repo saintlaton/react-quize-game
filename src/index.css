@@ -1,0 +1,469 @@
+:root {
+  --color-darkest: #343a40;
+  --color-dark: #495057;
+  --color-medium: #ced4da;
+  --color-light: #f1f3f5;
+
+  --color-theme: #1098ad;
+  --color-accent: #ff5c4d;
+  /* #ff5c4d */
+  /* #ffa94d */
+}
+
+/* @import url("https://fonts.googleapis.com/css2?family=Codystar&display=swap"); */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-light);
+  background-color: #212f32;
+  padding: 3.2rem;
+  /* animation: galaxyPulse 5s infinite alternate; */
+  background: radial-gradient(
+    circle,
+    rgba(33, 47, 50, 1) 20%,
+    rgba(32, 58, 67, 1) 40%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+@keyframes galaxyPulse {
+  0% {
+    background: radial-gradient(
+      circle,
+      rgba(33, 47, 50, 1) 20%,
+      rgba(32, 58, 67, 1) 40%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+  50% {
+    background: radial-gradient(
+      circle,
+      rgba(43, 57, 60, 1) 20%,
+      rgba(42, 68, 77, 1) 40%,
+      rgba(10, 10, 10, 1) 100%
+    );
+  }
+  100% {
+    background: radial-gradient(
+      circle,
+      rgba(33, 47, 50, 1) 20%,
+      rgba(32, 58, 67, 1) 40%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  width: 60rem;
+  background-color: rgba(139, 61, 185, 0.2); /* Set the background opacity */
+  padding: 5rem;
+  border-radius: 10px;
+  position: relative;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+  border-image: linear-gradient(
+    90deg,
+    #14042b,
+    #ff5c4d,
+    #6b61d1,
+    #ff5c4d,
+    #14042b
+  );
+  border-image-slice: 1;
+  animation: borderLoop 5s linear infinite;
+}
+
+@keyframes borderLoop {
+  0% {
+    border-image-source: linear-gradient(
+      90deg,
+      #14042b,
+      #ff5c4d,
+      #6b61d1,
+      #ff5c4d,
+      #14042b
+    );
+  }
+  100% {
+    border-image-source: linear-gradient(
+      450deg,
+      #14042b,
+      #ff5c4d,
+      #6b61d1,
+      #ff5c4d,
+      #14042b
+    );
+  }
+}
+
+.app-header {
+  width: 66rem;
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #2c537b 0.2; */
+  border-radius: 10%;
+}
+
+.error {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 2rem;
+  background-color: #495057;
+  border-radius: 100px;
+}
+
+img {
+  width: 14rem;
+}
+
+h1 {
+  font-family: "Codystar";
+  font-size: 5.6rem;
+}
+
+h2 {
+  font-size: 3.6rem;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 4rem;
+}
+
+h4 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 2.4rem;
+}
+
+.start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress {
+  margin-bottom: 4rem;
+  display: grid;
+  justify-content: space-between;
+  gap: 1.2rem;
+  grid-template-columns: auto auto;
+  font-size: 1.8rem;
+  color: var(--color-medium);
+}
+
+progress {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 12px;
+  grid-column: 1 / -1;
+}
+
+::-webkit-progress-bar {
+  background-color: var(--color-medium);
+  border-radius: 100px;
+}
+::-webkit-progress-value {
+  background-color: var(--color-theme);
+  border-radius: 100px;
+}
+
+.btn {
+  display: block;
+  font-family: inherit;
+  color: inherit;
+  font-size: 2rem;
+  border: 2px solid var(--color-dark);
+  background-color: #0a0f2c;
+  padding: 1.2rem 2.4rem;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: 0.3s;
+}
+
+.btn:not([disabled]):hover {
+  background-color: var(--color-darkest);
+}
+
+.btn-option:not([disabled]):hover {
+  transform: translateX(1.2rem);
+}
+
+.btn[disabled]:hover {
+  cursor: not-allowed;
+}
+
+.btn-ui {
+  float: right;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 3.2rem;
+}
+
+.btn-option {
+  width: 100%;
+  text-align: left;
+}
+
+.btn-option.correct {
+  /* background-color: var(--color-theme); */
+  border: 2px solid var(--color-theme);
+  color: var(--color-light);
+}
+.btn-option.wrong {
+  /* background-color: var(--color-accent); */
+  border: 2px solid var(--color-accent);
+  color: var(--color-darkest);
+}
+
+.answer {
+  transform: translateX(2rem);
+}
+
+.result {
+  background: linear-gradient(
+    to bottom right,
+    #ffffff,
+    #ff69b4 50%,
+    #8a2be2 100%
+  );
+  color: var(--color-light);
+  border-radius: 100px;
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+  text-transform: uppercase;
+}
+
+.result span {
+  font-size: 2.2rem;
+  margin-right: 4px;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+      0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 1),
+      0 0 30px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+      0 0 10px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.result-skill {
+  color: white; /* Set font color to white */
+  border-radius: 50px; /* Rounded corners */
+  font-size: 2rem; /* Adjust font size as needed */
+  padding: 1rem; /* Add some padding */
+  animation: glow 3s infinite; /* Continuous glow animation */
+}
+
+.highscore {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 4.8rem;
+  text-transform: uppercase;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+  gap: 1.6rem;
+
+  color: var(--color-medium);
+  font-size: 1.4rem;
+}
+
+.timer {
+  float: left;
+  font-size: 1.8rem;
+  color: var(--color-medium);
+  border: 2px solid var(--color-dark);
+  padding: 1.35rem 2.8rem;
+  border-radius: 100px;
+}
+
+/* CREDIT: https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje */
+.loader {
+  width: 50px;
+  height: 24px;
+  background: radial-gradient(circle closest-side, currentColor 90%, #0000) 0%
+      50%,
+    radial-gradient(circle closest-side, currentColor 90%, #0000) 50% 50%,
+    radial-gradient(circle closest-side, currentColor 90%, #0000) 100% 50%;
+  background-size: calc(100% / 3) 12px;
+  background-repeat: no-repeat;
+  animation: loader 1s infinite linear;
+}
+
+@keyframes loader {
+  20% {
+    background-position: 0% 0%, 50% 50%, 100% 50%;
+  }
+  40% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+  60% {
+    background-position: 0% 50%, 50% 100%, 100% 0%;
+  }
+  80% {
+    background-position: 0% 50%, 50% 50%, 100% 100%;
+  }
+}
+
+/* ********** */
+/* First counter example */
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 6rem;
+}
+
+.counter * {
+  font-size: inherit;
+  padding: 0.8rem;
+}
+
+.skills {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.skills h3 {
+  margin-bottom: 1rem;
+}
+
+.app-header h1 {
+  font-family: "YourFont", sans-serif; /* Add your desired font */
+  color: #ffffff; /* Set the font color to white */
+  text-shadow: 0 0 5px #00f, /* Primary dark blue glow */ 0 0 10px #00f,
+    /* Secondary dark blue glow */ 0 0 20px #0ff,
+    /* Cyan glow for extra neon effect */ 0 0 30px #0ff, 0 0 40px #0ff,
+    0 0 50px #0ff; /* Adjust the colors and strength of glow */
+  font-size: 3rem; /* Adjust the size of the font as needed */
+}
+
+.score-progress {
+  font-size: 20px;
+  font-weight: bold;
+  background: linear-gradient(
+    90deg,
+    #00f,
+    #1e90ff,
+    #ff00ff,
+    #8a2be2,
+    #1e90ff,
+    #00f
+  );
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: galaxyMove 8s infinite linear;
+}
+
+@keyframes galaxyMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.score-progress--div {
+  display: flex;
+  justify-content: center;
+}
+
+.skill-animate {
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: dropFromTop 0.5s ease-in forwards;
+}
+
+@keyframes dropFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.level-up {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: yellow;
+  color: black;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  opacity: 0;
+  animation: levelUpAnimation 5s ease-in-out forwards;
+}
+
+@keyframes levelUpAnimation {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
